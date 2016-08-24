@@ -47,13 +47,12 @@ void prefatch2()
     int tid;
     
 
-    count_fun = 0;
     attrib.name =       "trc-test";
     attrib.priority =   50;
     attrib.options =    0;
     attrib.stack_size = 40000;
     bzero((char *)&params, sizeof(thread_entry_param_t));
-    tid = kt_thread_create_obsolete(&attrib, (int_fn_t)0x3000ff0f, &params, TRUE);
+    tid = kt_thread_set_up(&attrib, (int_fn_t)0x3000ff0f, &params, TRUE);
 
     kt_thread_pause(2);
 }
